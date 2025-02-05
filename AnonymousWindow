@@ -1,16 +1,15 @@
-// Step 1: Get the OAuth Token
-/*String accessToken = PayspaceOAuthQueueable.getAccessToken();
-System.debug('Access Token: ' + accessToken);*/
+// Schedule SchedulePayspaceEmployeeCreation job to run every hour
 
-// Step 2: Sync Employee Data to Payspace
-/*SyncEmployeeToPayspace.syncEmployeesToPayspace();*/
+String cronExpression = '0 40 * * * ?'; // Runs at the 45th minute of every hour
+System.schedule('Hourly Payspace Employee Creation', cronExpression, new SchedulePayspaceEmployeeCreation());
+*/
 
 // Schedule SchedulePayspaceSync job to run every hour
-/*String cronExpression = '0 45 * * * ?'; // Runs at the 45th minute of every hour
-System.schedule('Hourly Payspace Sync', cronExpression, new SchedulePayspaceSync());*/
+
+String cronExpression = '0 33 * * * ?'; // Runs at the 45th minute of every hour
+System.schedule('Hourly Payspace Sync', cronExpression, new SchedulePayspaceSync());
+*/
 
 // Schedule the job to refresh the Payspace token every hour
 String cronExpression = '0 40 * * * ?'; // Runs at the 40th minute of every hour
 System.schedule('Hourly Payspace Token Refresh', cronExpression, new SchedulePayspaceToken());
-
-
